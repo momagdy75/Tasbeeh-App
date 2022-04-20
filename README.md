@@ -1,16 +1,8 @@
-# seb7a
+# Tasbeeh APP
 
-A new Flutter project.
+Simple tasbeeh program programmed with flutter.
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img
+![Screenshot_1650428838](https://user-images.githubusercontent.com/59104705/164150535-f43b0b1a-ffe0-45c4-8c1a-5c9a90245567.png)
+![Screenshot_1650428844](https://user-images.githubusercontent.com/59104705/164150552-1d415277-8332-4c8f-8183-8ea263436478.png)
