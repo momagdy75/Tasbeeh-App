@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seb7a/Azkar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 int counter=0;
 List<Map> counters=[];
 int counterone=0;
@@ -51,6 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+  _readone();
+  _readtwo();
+  _readthree();
+  _readfour();
+  _readfive();
+  _readsix();
+  _readseven();
   }
 
   @override
@@ -344,30 +353,37 @@ class _HomeScreenState extends State<HomeScreen> {
                         if (typeone) {
                           counterone++;
                           counter = counterone;
+                    _saveone();
                         }
                         if (typetwo) {
                           countertwo++;
                           counter = countertwo;
+                          _savetwo();
                         }
                         if (typethree) {
                           counterthree++;
                           counter = counterthree;
+                          _savethree();
                         }
                         if (typefour) {
                           counterfour++;
                           counter = counterfour;
+                          _savefour();
                         }
                         if (typefive) {
                           counterfive++;
                           counter = counterfive;
+                          _savefive();
                         }
                         if (typesix) {
                           countersix++;
                           counter = countersix;
+                          _savesix();
                         }
                         if (typeseven) {
                           counterseven++;
                           counter = counterseven;
+                          _saveseven();
                         }
 
                         if (counter >= 100000) {
@@ -376,7 +392,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         else if (counter < 100000) {
                           fontsize = 100;
                         }
+
                       });
+
                     },
                       child: Text("$x", style: TextStyle(fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -483,30 +501,38 @@ class _HomeScreenState extends State<HomeScreen> {
           if (typeone) {
             counterone = 0;
             counter = counterone;
+            _saveone();
+
           }
           if (typetwo) {
             countertwo = 0;
             counter = countertwo;
+            _savetwo();
           }
           if (typethree) {
             counterthree = 0;
             counter = counterthree;
+            _savethree();
           }
           if (typefour) {
             counterfour = 0;
             counter = counterfour;
+            _savefour();
           }
           if (typefive) {
             counterfive = 0;
             counter = counterfive;
+            _savefive();
           }
           if (typesix) {
             countersix = 0;
             counter = countersix;
+            _savesix();
           }
           if (typeseven) {
             counterseven = 0;
             counter = counterseven;
+            _saveseven();
           }
           Navigator.of(context).pop();
         });
@@ -520,6 +546,95 @@ class _HomeScreenState extends State<HomeScreen> {
           return alert;
         });
   }
-
-
+  _saveone() async{
+    final prefs = await SharedPreferences.getInstance();
+    final key = '0';
+    final value = counterone;
+    prefs.setInt(key, value);
+    print('saved $value');
+  }
+  _savetwo() async{
+    final prefs = await SharedPreferences.getInstance();
+    final key = '1';
+    final value = countertwo;
+    prefs.setInt(key, value);
+    print('saved $value');
+  }
+  _savethree() async{
+    final prefs = await SharedPreferences.getInstance();
+    final key = '2';
+    final value = counterthree;
+    prefs.setInt(key, value);
+    print('saved $value');
+  }
+  _savefour() async{
+    final prefs = await SharedPreferences.getInstance();
+    final key = '3';
+    final value = counterfour;
+    prefs.setInt(key, value);
+    print('saved $value');
+  }
+  _savefive() async{
+    final prefs = await SharedPreferences.getInstance();
+    final key = '4';
+    final value = counterfive;
+    prefs.setInt(key, value);
+    print('saved $value');
+  }
+  _savesix() async{
+    final prefs = await SharedPreferences.getInstance();
+    final key = '5';
+    final value = countersix;
+    prefs.setInt(key, value);
+    print('saved $value');
+  }
+  _saveseven() async{
+    final prefs = await SharedPreferences.getInstance();
+    final key = '6';
+    final value = counterseven;
+    prefs.setInt(key, value);
+    print('saved $value');
+  }
+  _readone() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = '0';
+    final value = prefs.getInt(key) ?? 0;
+    counterone=value;
+  }
+  _readtwo() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = '1';
+    final value = prefs.getInt(key) ?? 0;
+    countertwo=value;
+  }
+  _readthree() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = '2';
+    final value = prefs.getInt(key) ?? 0;
+    counterthree=value;
+  }
+  _readfour() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = '3';
+    final value = prefs.getInt(key) ?? 0;
+    counterfour=value;
+  }
+  _readfive() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = '4';
+    final value = prefs.getInt(key) ?? 0;
+    counterfive=value;
+  }
+  _readsix() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = '5';
+    final value = prefs.getInt(key) ?? 0;
+    counterseven=value;
+  }
+  _readseven() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = '6';
+    final value = prefs.getInt(key) ?? 0;
+    counterseven=value;
+  }
 }
